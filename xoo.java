@@ -129,14 +129,19 @@ public class xoo
 		int s = 1;
         char letter = ' ';
 		while(s <= 9){
-		    System.out.println("enter the position to insert x or o in that space:  ");
+            if(s%2 == 0){
+                System.out.println("\n");
+                System.out.println("It's your your turn, " + pb);
+            }
+            if(s%2 != 0){
+                System.out.println("It's your your turn, " + pa);
+            }
+		    System.out.println("enter the position to insert:  ");
 		    int pos = sc.nextInt();
 
 		    while(flag[pos - 1] == 1)
             {
-		        System.out.println("You have already entered this position  ");
-		        letter = sc.next().charAt(0);
-		        System.out.println("enter x or o in that space:  ");
+		        System.out.println("You have already entered this position, try another position:  ");
 		        pos = sc.nextInt();
 		    }
             if(s%2 == 0){
@@ -184,11 +189,11 @@ public class xoo
 		 s++;
 		 if(s >= 5){
 		    if(ch.winner(board, flag) == 1){
-                System.out.print(pa + " x is the winner! ");
+                System.out.print(pb + " x is the winner! ");
                 System.exit(0);
             }
             if(ch.winner(board, flag) == 2){
-                System.out.print(pb + "o is the winner! ");
+                System.out.print(pa + "o is the winner! ");
                 System.exit(0);
             }
 		 }
